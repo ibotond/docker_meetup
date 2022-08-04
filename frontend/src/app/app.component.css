@@ -1,0 +1,12 @@
+.container {
+    width: 60%;
+    height: 100%;
+    padding: 25px;
+    /* Center child horizontally*/
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+.child{
+    width: 100%;
+}
