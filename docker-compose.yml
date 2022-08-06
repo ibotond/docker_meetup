@@ -12,3 +12,15 @@ services:
       POSTGRES_USER: docker
     volumes:
       - ./db/data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend/
+    restart: always
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/docker # We need to set the service name instead of localhost!!
+      DB_USER: docker
+      DB_PW: secret
+    expose:
+      - 8080
+    depends_on:
+      - db
