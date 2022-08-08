@@ -2,12 +2,16 @@
 <form>
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Animal</mat-label>
-        <input matInput placeholder="ex. Dog">
+        <input matInput placeholder="ex. Dog"
+        [(ngModel)]="animalName"
+        [ngModelOptions]="{standalone:true}">
     </mat-form-field>
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Number of legs</mat-label>
-        <input matInput placeholder="ex. 4">
+        <input matInput placeholder="ex. 4" 
+        [(ngModel)]="numberOfLegs"
+        [ngModelOptions]="{standalone:true}">
     </mat-form-field>
 </form>
 <div mat-dialog-actions>

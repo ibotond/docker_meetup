@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ApiService } from '../services/api-service';
 
 @Component({
   selector: 'app-modal',
@@ -10,9 +11,10 @@ export class ModalComponent implements OnInit {
 
   animalName:string = "";
   numberOfLegs:Number = 0;
-  
+
   constructor(
-    public dialogRef: MatDialogRef<ModalComponent>
+    public dialogRef: MatDialogRef<ModalComponent>,
+    private service: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,8 @@ export class ModalComponent implements OnInit {
   }
 
   add(){
-
+    this.service.addAnimal(this.animalName,this.numberOfLegs).subscribe(res => {
+      this.dialogRef.close();
+    })
   }
 }

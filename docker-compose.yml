@@ -20,7 +20,7 @@ services:
       DB_URL: jdbc:postgresql://db:5432/docker # We need to set the service name instead of localhost!!
       DB_USER: docker
       DB_PW: secret
-    expose:
-      - 8080
+    ports:
+      - "8080:8080"
     depends_on:
       - db
