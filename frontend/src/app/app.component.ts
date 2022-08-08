@@ -58,7 +58,7 @@ export class AppComponent implements OnInit {
       width:'250px'
     })
 
-    dialogRef.afterClosed().subscribe(res => {
+    dialogRef.afterClosed().subscribe(_ => {
       this.getAndLoadAnimals();
     })
   }
