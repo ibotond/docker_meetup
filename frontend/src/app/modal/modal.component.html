@@ -1,0 +1,16 @@
+<h1>Add animal</h1>
+<form>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Animal</mat-label>
+        <input matInput placeholder="ex. Dog">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Number of legs</mat-label>
+        <input matInput placeholder="ex. 4">
+    </mat-form-field>
+</form>
+<div mat-dialog-actions>
+    <button mat-button (click)="add()" cdkFocusInitial>Add</button>
+    <button mat-button (click)="close()">Close</button>
+  </div>

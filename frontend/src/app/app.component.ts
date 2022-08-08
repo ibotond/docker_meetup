@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 export interface PeriodicElement {
   name: string;
@@ -24,4 +26,18 @@ export class AppComponent {
   title='frontend';
   displayedColumns: string[] = ['position', 'name', 'numberOfLegs', 'actions'];
   dataSource = ELEMENT_DATA;
+
+  constructor(
+    private dialog: MatDialog
+  ){}
+
+  openDialog(){
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width:'250px'
+    })
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log("dialog closed")
+    })
+  }
 }

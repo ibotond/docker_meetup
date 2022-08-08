@@ -3,7 +3,6 @@ COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package -Dmaven.test.skip
 
-#ENTRYPOINT ["java","-jar","/home/app/target/backend-1.0.0.jar"]
 FROM openjdk:18 AS RUN
 COPY --from=build /home/app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
