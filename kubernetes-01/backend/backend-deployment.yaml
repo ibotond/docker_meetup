@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-meetup-backend
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: botondillesminero/kubernetes_meetup:backend_v1
+        ports:
+        - containerPort: 8080
+        env:
+          - name: DB_URL
+            value: jdbc:postgresql://10.244.0.5:5432/docker
+          - name: DB_USER
+            value: docker
+          - name: DB_PW
+            value: secret
+      imagePullSecrets:
+      - name: dockerhub-secret
